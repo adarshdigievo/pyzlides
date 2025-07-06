@@ -1,0 +1,12 @@
+[project]
+name = "Pyzlides"
+version = "0.1.0"
+description = "Python + Slides"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "pillow>=11.3.0",
+    "pygments>=2.19.2",
+    "pyyaml>=6.0.2",
+    "reportlab>=4.4.2",
+]

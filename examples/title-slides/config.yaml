@@ -1,0 +1,12 @@
+theme:
+  background_color: "#F8F9FA"
+  font_color: "#212529"
+  font_size: 28
+  header_color: "#6F42C1"
+  header_font_size: 64
+  font: "Helvetica"
+
+slide_order:
+  - "slide1.py"
+  - "slide2.py"
+  - "slide3.py"
