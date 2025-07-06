@@ -1,5 +1,7 @@
 # Pyzlides: Python Presentation Creator
 
+> Note: This project was entirely vibe coded using [Jetbrains Junie](https://www.jetbrains.com/junie/) agent on Pycharm IDE.
+
 Pyzlides is a powerful Python library that allows you to create beautiful presentation slides in PDF format using declarative Python code. Generate professional presentations with customizable themes, layouts, and rich content including text, images, code blocks with syntax highlighting, and more.
 
 ## Features
