@@ -9,6 +9,8 @@ Pyzlides is a powerful Python library that allows you to create beautiful presen
 declarative Python code. Generate professional presentations with customizable themes, layouts, and rich content
 including text, images, code blocks with syntax highlighting, and more.
 
+![pyzlides_cover](./examples/images/cover.png)
+
 ## Features
 
 - **Declarative Slide Creation**: Define slides using intuitive Python classes
