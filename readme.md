@@ -1,8 +1,13 @@
 # Pyzlides: Python Presentation Creator
 
-> Note: This project was entirely vibe coded using [Jetbrains Junie](https://www.jetbrains.com/junie/) agent on Pycharm IDE.
+> Note: This project was entirely vibe coded using [Jetbrains Junie](https://www.jetbrains.com/junie/) agent on Pycharm
+> IDE.
 
-Pyzlides is a powerful Python library that allows you to create beautiful presentation slides in PDF format using declarative Python code. Generate professional presentations with customizable themes, layouts, and rich content including text, images, code blocks with syntax highlighting, and more.
+> The prompts used for creating this project can be seen in [.prompt_history](./.prompt_history) folder
+
+Pyzlides is a powerful Python library that allows you to create beautiful presentation slides in PDF format using
+declarative Python code. Generate professional presentations with customizable themes, layouts, and rich content
+including text, images, code blocks with syntax highlighting, and more.
 
 ## Features
 
@@ -22,21 +27,20 @@ Pyzlides is a powerful Python library that allows you to create beautiful presen
 
 - Python 3.13 or higher
 
-### Install Dependencies
+---
 
-```bash
-pip install pillow pygments pyyaml reportlab
-```
+### Install as package (recommended)
 
-### Local Installation
+- Install the package locally using `pip install .`
+- For local development/testing, install it in editable mode using `pip install -e .`
+- The project uses `uv` for packaging and dependency management
 
-1. Clone or download the project
-2. Navigate to the project directory
-3. Install dependencies as shown above
+---
 
 ## Quick Start
 
 1. **Create slide files** (e.g., `slide1.py`):
+
 ```python
 from pyzlides import Head1, BodyText, Center
 
@@ -47,6 +51,7 @@ slide = [
 ```
 
 2. **Create a configuration file** (`config.yaml`):
+
 ```yaml
 theme:
   background_color: "#FFFFFF"
@@ -61,6 +66,7 @@ slide_order:
 ```
 
 3. **Generate your presentation**:
+
 ```bash
 python -m pyzlides generate_pdf
 ```
@@ -72,6 +78,7 @@ This creates `presentation.pdf` in your current directory.
 ### Text Elements
 
 #### Headers
+
 ```python
 from pyzlides import Head1, Head2, Head3
 
@@ -86,6 +93,7 @@ Head3("Subsection Title")
 ```
 
 #### Body Text and Formatting
+
 ```python
 from pyzlides import BodyText, Bold
 
@@ -138,6 +146,7 @@ Img("path/to/image.jpg")
 ### Layout Elements
 
 #### Center Layout
+
 ```python
 from pyzlides import Center, Head1
 
@@ -148,6 +157,7 @@ slide = [
 ```
 
 #### Bottom Layout
+
 ```python
 from pyzlides import Bottom, BodyText
 
@@ -159,6 +169,7 @@ slide = [
 ```
 
 #### Title Slide Layout
+
 ```python
 from pyzlides import TitleSlide, Head1
 
@@ -169,6 +180,7 @@ slide = [
 ```
 
 #### Grid Layout
+
 ```python
 from pyzlides import GridLayout, BodyText, Img
 
@@ -202,9 +214,9 @@ from pyzlides import BodyText, Bold, Img
 
 # Combine multiple elements
 combined_content = (
-    BodyText("Introduction text") + 
-    Bold("Important note") + 
-    Img("diagram.jpg", "Process diagram")
+        BodyText("Introduction text") +
+        Bold("Important note") +
+        Img("diagram.jpg", "Process diagram")
 )
 
 slide = [combined_content]
@@ -219,11 +231,11 @@ theme:
   # Background and text colors
   background_color: "#FFFFFF"
   font_color: "#000000"
-  
+
   # Font settings
   font: "Helvetica"
   font_size: 24
-  
+
   # Header styling
   header_color: "#2E86AB"
   header_font_size: 48
@@ -247,6 +259,7 @@ slide_order:
 ## Command Line Usage
 
 ### Generate PDF
+
 ```bash
 # From project root
 python -m pyzlides generate_pdf
@@ -270,34 +283,41 @@ slide_order:
 The `examples/` folder contains several demonstration presentations:
 
 ### Basic Presentation (`examples/basic-presentation/`)
+
 - Simple text slides with headers and body text
 - Demonstrates basic layout and formatting
 
 ### Text and Code (`examples/text-and-code/`)
+
 - Text wrapping with long content
 - Code blocks with syntax highlighting
 - Mixed formatting examples
 
 ### Mixed Content (`examples/mixed-content/`)
+
 - Combination of text, images, and various elements
 - Shows element composition techniques
 
 ### Custom Background (`examples/custom-background/`)
+
 - Custom background images
 - Title slide layouts
 - Background image positioning
 
 ### Grid Layout (`examples/grid-layout/`)
+
 - Multi-column layouts
 - Complex content organization
 - Column-based design patterns
 
 ### Dark Mode (`examples/dark-mode/`)
+
 - Dark theme configuration
 - Light text on dark backgrounds
 - Theme customization examples
 
 ### Title Slides (`examples/title-slides/`)
+
 - Title slide layouts and positioning
 - Large header formatting
 - Presentation opening slides
@@ -315,6 +335,7 @@ python -m pyzlides generate_pdf
 ```
 
 Each example includes:
+
 - `config.yaml` - Theme and slide configuration
 - `slide*.py` - Individual slide definitions
 - `presentation.pdf` - Generated output (after running)
@@ -328,17 +349,20 @@ You can create reusable slide templates:
 ```python
 from pyzlides import Head1, BodyText, Center, Bottom
 
+
 def title_slide(title, subtitle):
     return [
         Center(Head1(title)),
         Center(BodyText(subtitle))
     ]
 
+
 def content_slide(title, content_list):
     elements = [Head2(title)]
     for item in content_list:
         elements.append(BodyText(f"• {item}"))
     return elements
+
 
 # Usage
 slide = title_slide("My Presentation", "Subtitle Here")
@@ -364,20 +388,20 @@ for point in data_points:
 ### Common Issues
 
 1. **"Slide file not found" error**
-   - Check that slide file paths in `config.yaml` are correct
-   - Ensure slide files exist in the specified locations
+    - Check that slide file paths in `config.yaml` are correct
+    - Ensure slide files exist in the specified locations
 
 2. **"No slide files specified" error**
-   - Verify your `config.yaml` has a `slide_order` section
-   - Check YAML syntax is correct
+    - Verify your `config.yaml` has a `slide_order` section
+    - Check YAML syntax is correct
 
 3. **Image not displaying**
-   - Verify image file paths are correct and accessible
-   - Supported formats: JPG, PNG, GIF
+    - Verify image file paths are correct and accessible
+    - Supported formats: JPG, PNG, GIF
 
 4. **Font issues**
-   - Use standard fonts like "Helvetica", "Times-Roman"
-   - Check font name spelling in config.yaml
+    - Use standard fonts like "Helvetica", "Times-Roman"
+    - Check font name spelling in config.yaml
 
 ### Getting Help
 
