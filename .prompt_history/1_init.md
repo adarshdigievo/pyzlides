@@ -1,7 +1,7 @@
 ## Prompt
 
 Create .junie/guidelines.md and add project overview
-> Added original_instructions.md as the file in context
+> Added [original_instructions.md](./../original_instructions.md) as the file in context
 
 ## Junie Response
 
